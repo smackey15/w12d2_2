@@ -9,6 +9,7 @@ class Api::SessionsController < ApplicationController
         if @user
             login!(@user)
             # render :show doesn't work, need to render something else
+            render "api/users/show"
         else
             render json: ["invalid credentials"], status: 422
         end
